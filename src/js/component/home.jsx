@@ -1,24 +1,22 @@
 import React from "react";
+import Campo from "./Campo"
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
 const Home = () => {
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				Leonardo esta trabajando...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		
+		<div className="container mt-5">
+			<div className="row">
+				<div id="Lista" className="col-9 text-center mb-5 mt-5">
+					<h1>Lista de Tareas</h1>
+					<Campo tarea="Prueba 1 2 3" />
+					<Campo tarea="Prueba 4 5 6" />
+					<Campo tarea="Prueba 7 8 9" />
+					<Campo tarea="Prueba 10 11 12" />
+					<Campo tarea="Prueba 10 11 12" />
+				</div>
+			</div>
 		</div>
 	);
 };
