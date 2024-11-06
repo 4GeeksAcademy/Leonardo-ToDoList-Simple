@@ -5,7 +5,7 @@ const Campo = ({ tarea, eliminar }) => {
 		<div className="tarea-container d-flex justify-content-between align-items-center border-bottom py-2">
 			<span>{tarea}</span>{/*funcion escribir la tarea en pantalla */}
 			<button className="btn btn-sm btn-danger eliminar-btn" onClick={eliminar}>
-				Eliminar
+            <i class="fa fa-trash" aria-hidden="true"></i>
 			 </button>{/*funcion para eliminar la tarea */}
 		</div>
 	);

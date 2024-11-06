@@ -24,6 +24,7 @@ const Home = () => {
 	return (
 		<div className="container mt-5">
 			<h1 id="Titulo" className="text-center">Lista de Tareas de Leo</h1>
+			{/* imput para añadir tareas */}
 			<input
 				id="Field"
 				type="text"
@@ -32,7 +33,8 @@ const Home = () => {
 				value={nuevaTarea}
 				onChange={handleChange}
 				onKeyPress={handleKeyPress}
-			/>
+			 />
+			 {/* Lista donde se imprimen las tareas */}
 			<div id="Lista" >
 				{tareas.length === 0 ? (
 					<p>No hay tareas, añadir tareas</p>
