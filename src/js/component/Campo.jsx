@@ -1,18 +1,14 @@
 import React from "react";
 
-const Campo = (props) => {
-    return (
-        <div className="row">
-            <div className="col-9 mt-3 mx-auto">
-            <div className="form-check">                
-                <input id="Check" className="form-check-input" type="checkbox"/>
-                <label className="form-check-label">
-                    {props.tarea}
-                </label>
-            </div>
-            </div>
-        </div>
-    );
+const Campo = ({ tarea, eliminar }) => {
+	return (
+		<div className="tarea-container d-flex justify-content-between align-items-center border-bottom py-2">
+			<span>{tarea}</span>{/*funcion escribir la tarea en pantalla */}
+			<button className="btn btn-sm btn-danger eliminar-btn" onClick={eliminar}>
+				Eliminar
+			 </button>{/*funcion para eliminar la tarea */}
+		</div>
+	);
 };
 
 export default Campo;

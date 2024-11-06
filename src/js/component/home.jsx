@@ -1,21 +1,46 @@
-import React from "react";
-import Campo from "./Campo"
+import React, { useState } from "react";
+import Campo from "./Campo";
 
-
-//create your first component
 const Home = () => {
+	const [tareas, setTareas] = useState([]); // Estado para almacenar las tareas
+	const [nuevaTarea, setNuevaTarea] = useState(""); // Estado para la tarea que se va a agregar
+
+	// Función para manejar el cambio en el input
+	const handleChange = (event) => setNuevaTarea(event.target.value);
+
+	// Agrega la tarea al presionar Enter
+	const handleKeyPress = (event) => {
+		if (event.key === "Enter" && nuevaTarea.trim()) {
+			setTareas([...tareas, nuevaTarea.trim()]);
+			setNuevaTarea("");
+		}
+	};
+
+	// Elimina una tarea
+	const eliminarTarea = (index) => {
+		setTareas(tareas.filter((_, i) => i !== index));
+	};
+
 	return (
-		
 		<div className="container mt-5">
-			<div className="row">
-				<div id="Lista" className="col-9 text-center mb-5 mt-5">
-					<h1>Lista de Tareas</h1>
-					<Campo tarea="Prueba 1 2 3" />
-					<Campo tarea="Prueba 4 5 6" />
-					<Campo tarea="Prueba 7 8 9" />
-					<Campo tarea="Prueba 10 11 12" />
-					<Campo tarea="Prueba 10 11 12" />
-				</div>
+			<h1 id="Titulo" className="text-center">Lista de Tareas de Leo</h1>
+			<input
+				id="Field"
+				type="text"
+				className="form-control mb-3"
+				placeholder="Añadir una tarea..."
+				value={nuevaTarea}
+				onChange={handleChange}
+				onKeyPress={handleKeyPress}
+			/>
+			<div id="Lista" >
+				{tareas.length === 0 ? (
+					<p>No hay tareas, añadir tareas</p>
+				) : (
+					tareas.map((tarea, index) => (
+						<Campo key={index} tarea={tarea} eliminar={() => eliminarTarea(index)} />
+					))
+				)}
 			</div>
 		</div>
 	);
